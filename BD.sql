@@ -7,7 +7,7 @@ create table tbl_usuario(
 	email 			varchar(256) not null,
 	senha			varchar(15) not null,
 	telefone 		varchar(14) not null,
-    nascimento		date default '0000/00/00'
+    nascimento		date
 );
 
 /*
@@ -26,12 +26,13 @@ create table tbl_resolutor(
 );
 */
 
-create table tbl_admin(
+/*create table tbl_admin(
 	id_admin 	int primary key auto_increment,
 	nome 		varchar(100) not null,
     email 		varchar(100) not null,
     senha 		varchar(15) not null
 );
+*/
 
 create table tbl_endereco(
 	cep 		varchar(9) primary key not null,
@@ -44,12 +45,13 @@ create table tbl_endereco(
 
 create table tbl_denuncia(
 	id_denuncia 	int primary key auto_increment,
-	qnt_denuncia 	int not null,
+	qnt_denuncia 	int,
 	descrição 		text,
 	tipo_problema 	varchar(50),
-    e_cep 			int,
+    fk_cep 			varchar(9) not null,
     
-    constraint fk_cep foreign key (e_cep) references tbl_endereco(cep)
+    constraint fk_cep foreign Key(fk_cep) references tbl_endereco(cep)
+    
 );
 
 create table tbl_imagem(
@@ -57,7 +59,7 @@ create table tbl_imagem(
     tipo_imagem		varchar(4) not null,
     nome_imagem		varchar(255) not null,
     imagem 			blob not null,
-    e_id_denuncia 	int,
+    fk_id_denuncia 	int,
     
-    constraint fk_id_denuncia foreign key(e_id_denuncia) references tbl_denuncia(id_denuncia)
+    constraint fk_id_denuncia foreign key(fk_id_denuncia) references tbl_denuncia(id_denuncia)
 );
