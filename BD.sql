@@ -5,7 +5,7 @@ create table tbl_usuario(
 	id_usuario		int primary Key auto_increment,
 	nome_usuario 	varchar(256) not null,
 	email 			varchar(256) not null,
-	senha			varchar(15) not null,
+	senha			varchar(150) not null,
 	telefone 		varchar(14) not null,
     nascimento		date
 );
