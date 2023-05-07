@@ -10,6 +10,19 @@ create table tbl_usuario(
     nascimento		date
 );
 
+select * from tbl_usuario;
+
+create table denuncia(
+	id_imagem int primary key auto_increment,
+	imagem blob,
+    tipo_problema varchar(50),
+    desc_problema text,
+    longitude varchar(20),
+    latitude varchar(20)
+);
+
+SELECT * FROM denuncia;
+
 /*
 create table tbl_resolutor(
 	id_resolutor 	int primary key auto_increment,
@@ -21,7 +34,6 @@ create table tbl_resolutor(
 	telefone 		int(14) not null,
     
 	e_id_usuario 	int,
-
 	constraint fk_id_usuario foreign key (e_id_usuario) references tbl_usuario(id_usuario) 
 );
 */
@@ -34,32 +46,33 @@ create table tbl_resolutor(
 );
 */
 
-create table tbl_endereco(
-	cep 		varchar(9) primary key not null,
-	rua 		varchar(100),
-	bairro 		varchar(100),
-	municipio 	varchar(50),
-    latitude 	float not null,
-    logitude 	float not null
-);
+-- create table tbl_endereco(
+-- 	cep 		varchar(9) primary key not null,
+-- 	rua 		varchar(100),
+-- 	bairro 		varchar(100),
+-- 	municipio 	varchar(50),
+--     latitude 	float not null,
+--     logitude 	float not null
+-- );
 
-create table tbl_denuncia(
-	id_denuncia 	int primary key auto_increment,
-	qnt_denuncia 	int,
-	descrição 		text,
-	tipo_problema 	varchar(50),
-    fk_cep 			varchar(9) not null,
-    
-    constraint fk_cep foreign Key(fk_cep) references tbl_endereco(cep)
-    
-);
+-- create table tbl_denuncia(
+-- 	id_denuncia 	int primary key auto_increment,
+-- 	qnt_denuncia 	int,
+-- 	descrição 		text,
+-- 	tipo_problema 	varchar(50),
+--     fk_cep 			varchar(9) not null,
+--     
+--     constraint fk_cep foreign Key(fk_cep) references tbl_endereco(cep)
+--     
+-- );
 
-create table tbl_imagem(
-	id_imagem 		int primary key auto_increment,
-    tipo_imagem		varchar(4) not null,
-    nome_imagem		varchar(255) not null,
-    imagem 			blob not null,
-    fk_id_denuncia 	int,
-    
-    constraint fk_id_denuncia foreign key(fk_id_denuncia) references tbl_denuncia(id_denuncia)
-);
+-- create table tbl_imagem(
+-- 	id_imagem 		int primary key auto_increment,
+--     tipo_imagem		varchar(4) not null,
+--     nome_imagem		varchar(255) not null,
+--     imagem 			blob not null,
+--     fk_id_denuncia 	int,
+--     
+--     constraint fk_id_denuncia foreign key(fk_id_denuncia) references tbl_denuncia(id_denuncia)
+-- );
+
