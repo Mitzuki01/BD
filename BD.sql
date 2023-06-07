@@ -18,5 +18,5 @@ CREATE TABLE tbl_denuncia (
   tipo_problema VARCHAR(100),
   latitude float,
   longitude float,
-  imagem blob not null
+  imagem varchar(256) not null
 );
