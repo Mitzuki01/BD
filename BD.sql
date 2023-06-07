@@ -16,7 +16,9 @@ CREATE TABLE tbl_denuncia (
   id_denuncia INT AUTO_INCREMENT PRIMARY KEY,
   desc_problema varchar(256),
   tipo_problema VARCHAR(100),
-  latitude float,
-  longitude float,
-  imagem blob not null
+  latitude float not null,
+  longitude float not null,
+  imagem varchar(256) not null
 );
+
+select * from tbl_denuncia
